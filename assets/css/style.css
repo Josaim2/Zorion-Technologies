@@ -814,31 +814,29 @@ section {
   align-items: center;
 }
 
-.mission-mark-wrap {
+.brand-mark-wrap {
+  position: relative;
   text-align: center;
+  color: #fff;
 }
 
-.mission-mark {
-  font-size: clamp(140px, 16vw, 230px);
+.brand-mark {
+  font-size: clamp(100px, 12vw, 160px);
   font-weight: 800;
   line-height: 0.9;
   letter-spacing: -0.05em;
-  background: linear-gradient(135deg, #8f83ff 10%, var(--color-accent) 90%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
 }
 
-.mission-tag {
+.brand-mark-tag {
   display: inline-block;
   margin-top: 20px;
   padding: 8px 18px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(242, 242, 248, 0.2);
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--color-dark-ink);
+  backdrop-filter: blur(4px);
 }
 
 @media (max-width: 900px) {
@@ -901,6 +899,31 @@ section {
   font-size: 0.9rem;
   background: var(--color-primary-tint);
   color: var(--color-primary);
+}
+
+/* Dark-section variants of step cards */
+
+.section-dark .step-card {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(242, 242, 248, 0.1);
+  box-shadow: none;
+}
+
+.section-dark .step-card:hover {
+  border-color: rgba(143, 131, 255, 0.45);
+}
+
+.section-dark .step-card strong {
+  color: var(--color-dark-ink);
+}
+
+.section-dark .step-card small {
+  color: var(--color-dark-ink-soft);
+}
+
+.section-dark .step-num {
+  background: rgba(143, 131, 255, 0.15);
+  color: #8f83ff;
 }
 
 @media (max-width: 980px) {
