@@ -56,9 +56,6 @@
   }
 
   function initLangSwitch() {
-    var initial = getStoredLang() || DEFAULT_LANG;
-    applyLang(initial);
-
     document.querySelectorAll(".lang-switch button").forEach(function (btn) {
       btn.addEventListener("click", function () {
         applyLang(btn.getAttribute("data-lang"));
@@ -149,10 +146,28 @@
     els.forEach(function (el) { io.observe(el); });
   }
 
-  document.addEventListener("DOMContentLoaded", function () {
-    initLangSwitch();
-    initNavToggle();
-    initContactForm();
-    initReveal();
-  });
+  function initHeroPause() {
+    // Hero background animations run forever — pause them once the hero
+    // is scrolled out of view to save CPU/battery.
+    var heroBg = document.querySelector(".hero-bg");
+    if (!heroBg || !("IntersectionObserver" in window)) return;
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        heroBg.classList.toggle("paused", !entry.isIntersecting);
+      });
+    });
+    io.observe(heroBg);
+  }
+
+  // The script is loaded at the end of <body>, so the DOM above it is already
+  // parsed. Applying the saved language synchronously here — before the first
+  // paint — prevents the EN→RU text swap from causing a layout shift (CLS).
+  applyLang(getStoredLang() || DEFAULT_LANG);
+
+  initLangSwitch();
+  initNavToggle();
+  initContactForm();
+  initReveal();
+  initHeroPause();
 })();

@@ -1,5 +1,16 @@
 /* Zorion Technologies — design system */
 
+/* Metric-matched fallback for Inter: while the webfont loads, Arial is
+   rendered with adjusted metrics so the swap causes no layout shift. */
+@font-face {
+  font-family: "Inter Fallback";
+  src: local("Arial");
+  size-adjust: 107%;
+  ascent-override: 90.5%;
+  descent-override: 22.5%;
+  line-gap-override: 0%;
+}
+
 :root {
   --color-bg: #ffffff;
   --color-bg-alt: #f6f7fc;
@@ -17,7 +28,7 @@
   --color-dark-ink: #f2f2f8;
   --color-dark-ink-soft: #a9acc4;
 
-  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-sans: "Inter", "Inter Fallback", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
   --container-w: 1160px;
   --radius-sm: 8px;
@@ -552,6 +563,13 @@ section {
 
 @keyframes spin {
   to { transform: rotate(360deg); }
+}
+
+/* Set by JS when the hero is scrolled out of view — stops the endless
+   background animations from burning CPU while invisible. */
+.hero-bg.paused .orb,
+.hero-bg.paused .orbits g {
+  animation-play-state: paused;
 }
 
 @media (prefers-reduced-motion: reduce) {
