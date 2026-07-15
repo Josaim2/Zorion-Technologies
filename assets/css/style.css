@@ -250,7 +250,7 @@ section {
 }
 
 .logo .logo-dot {
-  color: var(--color-primary);
+  color: #fff;
 }
 
 .nav-links {
