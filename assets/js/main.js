@@ -113,7 +113,7 @@
       ".ind-grid .ind-card",
       ".svc-grid .svc-card",
       ".step-row .step-card",
-      ".mission-grid > div",
+      ".statement-grid > div",
       ".feature-row > div",
       ".cta-band",
       ".page-hero .container > *",

@@ -807,42 +807,36 @@ section {
 
 /* ---------- About page: mission band + step row ---------- */
 
-.mission-grid {
+/* Statement layout: heading on the left, prose on the right */
+
+.statement-grid {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 64px;
-  align-items: center;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 40px 72px;
+  align-items: start;
 }
 
-.brand-mark-wrap {
-  position: relative;
-  text-align: center;
-  color: #fff;
+.statement-grid h2 {
+  margin-bottom: 0;
+  font-size: clamp(2rem, 3.4vw, 2.8rem);
 }
 
-.brand-mark {
-  font-size: clamp(100px, 12vw, 160px);
-  font-weight: 800;
-  line-height: 0.9;
-  letter-spacing: -0.05em;
+.statement-grid .lede {
+  max-width: none;
 }
 
-.brand-mark-tag {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 8px 18px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.16);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  font-size: 0.85rem;
-  font-weight: 600;
-  backdrop-filter: blur(4px);
+.values-block {
+  margin-top: 96px;
 }
 
 @media (max-width: 900px) {
-  .mission-grid {
+  .statement-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 28px;
+  }
+
+  .values-block {
+    margin-top: 72px;
   }
 }
 
